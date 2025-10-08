@@ -30,7 +30,6 @@
             overflow-x: hidden;
         }
 
-        /* Animated gradient background */
         .gradient-bg {
             position: fixed;
             top: 0;
@@ -50,7 +49,6 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -120,7 +118,6 @@
             box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
         }
 
-        /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -220,44 +217,9 @@
             border-color: var(--primary);
         }
 
-        /* Brand Logos */
-        .brands {
-            padding: 3rem 5%;
-            text-align: center;
-        }
-
-        .brands h3 {
-            color: var(--text-dim);
-            margin-bottom: 2rem;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .brand-grid {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-            opacity: 0.6;
-        }
-
-        .brand-item {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--text-dim);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 100px 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
         .section-header {
             text-align: center;
-            margin-bottom: 5rem;
+            margin-bottom: 4rem;
         }
 
         .section-tag {
@@ -283,398 +245,6 @@
             color: var(--text-dim);
             max-width: 700px;
             margin: 0 auto;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .feature-card {
-            background: rgba(30, 41, 59, 0.5);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 3rem;
-            transition: all 0.4s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
-        }
-
-        .feature-card:hover::before {
-            opacity: 1;
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .feature-card p {
-            color: var(--text-dim);
-            line-height: 1.8;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* How It Works */
-        .how-it-works {
-            padding: 100px 5%;
-            background: rgba(30, 41, 59, 0.3);
-        }
-
-        .workflow-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            gap: 3rem;
-        }
-
-        .workflow-step {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .workflow-step:nth-child(even) {
-            direction: rtl;
-        }
-
-        .workflow-step:nth-child(even) > * {
-            direction: ltr;
-        }
-
-        .workflow-content {
-            position: relative;
-        }
-
-        .step-number {
-            font-size: 1rem;
-            color: var(--primary);
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .workflow-content h3 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .workflow-content p {
-            font-size: 1.1rem;
-            color: var(--text-dim);
-            line-height: 1.8;
-        }
-
-        .workflow-visual {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 3rem;
-            height: 350px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .workflow-visual::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
-            opacity: 0.2;
-            animation: pulse 3s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(0.8); opacity: 0.2; }
-            50% { transform: scale(1.2); opacity: 0.4; }
-        }
-
-        .workflow-visual-text {
-            font-size: 3rem;
-            font-weight: 700;
-            opacity: 0.3;
-        }
-
-        /* Target Audience */
-        .audience {
-            padding: 100px 5%;
-        }
-
-        .audience-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .audience-card {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 3rem;
-            text-align: center;
-            transition: all 0.4s ease;
-            cursor: pointer;
-        }
-
-        .audience-card:hover {
-            transform: scale(1.05);
-            border-color: var(--primary);
-            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
-        }
-
-        .audience-icon {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .audience-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .audience-card p {
-            color: var(--text-dim);
-            font-size: 1.1rem;
-        }
-
-        /* Stats Section */
-        .stats {
-            padding: 100px 5%;
-            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
-        }
-
-        .stats-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            text-align: center;
-        }
-
-        .stat-item {
-            padding: 2rem;
-        }
-
-        .stat-number {
-            font-size: 4rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-label {
-            color: var(--text-dim);
-            font-size: 1.1rem;
-        }
-
-        /* Pricing */
-        .pricing {
-            padding: 100px 5%;
-        }
-
-        .pricing-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .pricing-card {
-            background: rgba(30, 41, 59, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 24px;
-            padding: 3rem;
-            transition: all 0.4s ease;
-            position: relative;
-        }
-
-        .pricing-card.featured {
-            border: 2px solid var(--primary);
-            transform: scale(1.05);
-            background: rgba(99, 102, 241, 0.1);
-        }
-
-        .pricing-badge {
-            position: absolute;
-            top: -12px;
-            right: 20px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            padding: 0.3rem 1rem;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 600;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px) scale(1.02);
-            border-color: var(--primary);
-        }
-
-        .pricing-card.featured:hover {
-            transform: translateY(-10px) scale(1.07);
-        }
-
-        .pricing-name {
-            font-size: 1.2rem;
-            color: var(--text-dim);
-            margin-bottom: 1rem;
-        }
-
-        .pricing-price {
-            font-size: 3.5rem;
-            font-weight: 800;
-            margin-bottom: 0.5rem;
-        }
-
-        .pricing-period {
-            color: var(--text-dim);
-            margin-bottom: 2rem;
-        }
-
-        .pricing-features {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .pricing-features li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            color: var(--text-dim);
-        }
-
-        .pricing-features li:last-child {
-            border-bottom: none;
-        }
-
-        .pricing-button {
-            width: 100%;
-            padding: 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .pricing-button:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: var(--primary);
-        }
-
-        .pricing-card.featured .pricing-button {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            border: none;
-        }
-
-        /* Footer */
-        footer {
-            padding: 80px 5% 40px;
-            background: rgba(15, 23, 42, 0.8);
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
-            margin-bottom: 3rem;
-        }
-
-        .footer-brand h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .footer-brand p {
-            color: var(--text-dim);
-            line-height: 1.8;
-        }
-
-        .footer-links h4 {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links a {
-            color: var(--text-dim);
-            text-decoration: none;
-            display: block;
-            padding: 0.5rem 0;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--primary);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: var(--text-dim);
         }
 
         /* Generator Section */
@@ -921,7 +491,14 @@
             transform: translateX(5px);
         }
 
-        /* Responsive */
+        footer {
+            padding: 40px 5%;
+            background: rgba(15, 23, 42, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: var(--text-dim);
+        }
+
         @media (max-width: 768px) {
             .hero h1 {
                 font-size: 2.5rem;
@@ -937,20 +514,6 @@
 
             .section-header h2 {
                 font-size: 2.5rem;
-            }
-
-            .workflow-step {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .workflow-step:nth-child(even) {
-                direction: ltr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
             }
 
             .nav-links {
@@ -978,181 +541,247 @@
 <body>
     <div class="gradient-bg"></div>
 
-    <!-- Navigation -->
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo">Flumio.ai</div>
             <ul class="nav-links">
+                <li><a href="#create">Create</a></li>
                 <li><a href="#features">Features</a></li>
-                <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#pricing">Pricing</a></li>
             </ul>
-            <a href="#" class="cta-button">Get Started Free</a>
+            <a href="#create" class="cta-button">Start Creating</a>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
             <h1>Transform Ideas Into Stunning Visuals</h1>
             <p>Create professional images and videos with AI. From text to visual masterpieces in seconds.</p>
             <div class="hero-buttons">
-                <a href="#" class="cta-button">Start Creating Free</a>
-                <a href="#" class="secondary-button">Watch Demo</a>
+                <a href="#create" class="cta-button">Start Creating Free</a>
+                <a href="#features" class="secondary-button">Explore Features</a>
             </div>
         </div>
     </section>
 
-    <!-- Brands -->
-    <section class="brands">
-        <h3>Trusted by Creative Teams Worldwide</h3>
-        <div class="brand-grid">
-            <div class="brand-item">Adobe</div>
-            <div class="brand-item">Spotify</div>
-            <div class="brand-item">Netflix</div>
-            <div class="brand-item">Meta</div>
-            <div class="brand-item">Microsoft</div>
-        </div>
-    </section>
-
-    <!-- Features -->
-    <section class="features" id="features">
+    <!-- AI Generator Form -->
+    <section class="generator-section" id="create">
         <div class="section-header">
-            <span class="section-tag">AI CREATION SUITE</span>
-            <h2>Everything You Need to Create</h2>
-            <p>Powerful AI tools that transform your creative vision into reality across multiple formats</p>
+            <span class="section-tag">START CREATING</span>
+            <h2>AI Content Generator</h2>
+            <p>Select your mode and customize settings to generate stunning content</p>
         </div>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">✨</div>
-                <h3>Text to Image</h3>
-                <p>Transform written descriptions into stunning, high-resolution images. Perfect for concept art, marketing materials, and creative exploration.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎬</div>
-                <h3>Text to Video</h3>
-                <p>Generate dynamic video content from text prompts. Create engaging video ads, explainers, and social media content in minutes.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🖼️</div>
-                <h3>Image to Image</h3>
-                <p>Transform existing images with AI. Change styles, enhance quality, or create entirely new variations while maintaining core elements.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🎥</div>
-                <h3>Image to Video</h3>
-                <p>Bring static images to life with cinematic animations. Create product showcases, dynamic presentations, and animated content effortlessly.</p>
+        
+        <div class="generator-container">
+            <div class="generator-card">
+                <!-- Mode Tabs -->
+                <div class="mode-tabs">
+                    <button class="mode-tab active" data-mode="text-to-image">
+                        <span class="tab-icon">✨</span>
+                        <span class="tab-label">Text to Image</span>
+                    </button>
+                    <button class="mode-tab" data-mode="text-to-video">
+                        <span class="tab-icon">🎬</span>
+                        <span class="tab-label">Text to Video</span>
+                    </button>
+                    <button class="mode-tab" data-mode="image-to-video">
+                        <span class="tab-icon">🖼️</span>
+                        <span class="tab-label">Image to Video</span>
+                    </button>
+                    <button class="mode-tab" data-mode="video-to-video">
+                        <span class="tab-icon">🎥</span>
+                        <span class="tab-label">Video to Video</span>
+                    </button>
+                </div>
+
+                <!-- Form Content -->
+                <div class="form-content">
+                    <!-- Prompt Input -->
+                    <div class="form-group">
+                        <label for="prompt">Describe what you want to create</label>
+                        <textarea 
+                            id="prompt" 
+                            rows="4" 
+                            placeholder="A futuristic cityscape at sunset with flying cars and neon lights..."
+                        ></textarea>
+                    </div>
+
+                    <!-- Model Selection -->
+                    <div class="form-group">
+                        <label for="model">AI Model</label>
+                        <select id="model" class="form-select">
+                            <option value="nano-banana">Nano Banana</option>
+                            <option value="midjourney">Midjourney</option>
+                        </select>
+                    </div>
+
+                    <!-- File Upload (for image/video to video modes) -->
+                    <div class="form-group upload-group" style="display: none;">
+                        <label>Upload Source File</label>
+                        <div class="upload-area">
+                            <input type="file" id="fileUpload" accept="image/*,video/*" hidden>
+                            <label for="fileUpload" class="upload-label">
+                                <span class="upload-icon">📁</span>
+                                <span class="upload-text">Click to upload or drag and drop</span>
+                                <span class="upload-hint">Supported: JPG, PNG, MP4, MOV</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Settings Grid -->
+                    <div class="settings-grid">
+                        <!-- Aspect Ratio -->
+                        <div class="form-group">
+                            <label>Aspect Ratio</label>
+                            <div class="button-group">
+                                <button type="button" class="option-button active" data-value="16:9">
+                                    <span class="option-icon">🖥️</span>
+                                    <span>16:9 Landscape</span>
+                                </button>
+                                <button type="button" class="option-button" data-value="9:16">
+                                    <span class="option-icon">📱</span>
+                                    <span>9:16 Portrait</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Duration (for video modes) -->
+                        <div class="form-group duration-group" style="display: none;">
+                            <label>Duration</label>
+                            <div class="button-group">
+                                <button type="button" class="option-button active" data-value="4">4 sec</button>
+                                <button type="button" class="option-button" data-value="8">8 sec</button>
+                                <button type="button" class="option-button" data-value="16">16 sec</button>
+                            </div>
+                        </div>
+
+                        <!-- Quality -->
+                        <div class="form-group">
+                            <label>Quality</label>
+                            <div class="button-group">
+                                <button type="button" class="option-button" data-value="720p">720p HD</button>
+                                <button type="button" class="option-button active" data-value="1080p">1080p Full HD</button>
+                                <button type="button" class="option-button" data-value="4k">4K 2160p</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Create Button -->
+                    <button class="create-button">
+                        <span class="button-text">Create Content</span>
+                        <span class="button-icon">→</span>
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- How It Works -->
-    <section class="how-it-works" id="how-it-works">
-        <div class="section-header">
-            <span class="section-tag">SIMPLE WORKFLOW</span>
-            <h2>How It Works</h2>
-        </div>
-        <div class="workflow-grid">
-            <div class="workflow-step">
-                <div class="workflow-content">
-                    <div class="step-number">Step 01</div>
-                    <h3>Describe Your Vision</h3>
-                    <p>Enter your creative brief, upload an image, or paste a URL. Our AI understands natural language and visual context to bring your ideas to life.</p>
-                </div>
-                <div class="workflow-visual">
-                    <div class="workflow-visual-text">💭</div>
-                </div>
-            </div>
+    <footer>
+        <p>&copy; 2025 Flumio.ai. All rights reserved.</p>
+    </footer>
 
-            <div class="workflow-step">
-                <div class="workflow-content">
-                    <div class="step-number">Step 02</div>
-                    <h3>AI Creates Multiple Variants</h3>
-                    <p>Our advanced AI generates multiple high-quality options instantly. Choose from different styles, compositions, and creative interpretations.</p>
-                </div>
-                <div class="workflow-visual">
-                    <div class="workflow-visual-text">🎨</div>
-                </div>
-            </div>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
 
-            <div class="workflow-step">
-                <div class="workflow-content">
-                    <div class="step-number">Step 03</div>
-                    <h3>Customize & Refine</h3>
-                    <p>Fine-tune every aspect with our intuitive editor. Adjust colors, styles, animations, and more to match your brand perfectly.</p>
-                </div>
-                <div class="workflow-visual">
-                    <div class="workflow-visual-text">⚙️</div>
-                </div>
-            </div>
+        // Mode Tab Switching
+        const modeTabs = document.querySelectorAll('.mode-tab');
+        const modelSelect = document.getElementById('model');
+        const durationGroup = document.querySelector('.duration-group');
+        const uploadGroup = document.querySelector('.upload-group');
 
-            <div class="workflow-step">
-                <div class="workflow-content">
-                    <div class="step-number">Step 04</div>
-                    <h3>Export & Deploy</h3>
-                    <p>Download in any format or publish directly to your platforms. Optimized for social media, websites, and advertising channels.</p>
-                </div>
-                <div class="workflow-visual">
-                    <div class="workflow-visual-text">🚀</div>
-                </div>
-            </div>
-        </div>
-    </section>
+        const modelOptions = {
+            'text-to-image': [
+                { value: 'nano-banana', label: 'Nano Banana' },
+                { value: 'midjourney', label: 'Midjourney' }
+            ],
+            'text-to-video': [
+                { value: 'sora2-pro', label: 'Sora 2 Pro' },
+                { value: 'veo3', label: 'Veo 3' },
+                { value: 'kling-2.5-turbo', label: 'Kling 2.5 Turbo' }
+            ],
+            'image-to-video': [
+                { value: 'sora2-pro', label: 'Sora 2 Pro' },
+                { value: 'veo3', label: 'Veo 3' },
+                { value: 'kling-2.5-turbo', label: 'Kling 2.5 Turbo' }
+            ],
+            'video-to-video': [
+                { value: 'sora2-pro', label: 'Sora 2 Pro' },
+                { value: 'veo3', label: 'Veo 3' },
+                { value: 'kling-2.5-turbo', label: 'Kling 2.5 Turbo' }
+            ]
+        };
 
-    <!-- Target Audience -->
-    <section class="audience">
-        <div class="section-header">
-            <span class="section-tag">BUILT FOR EVERYONE</span>
-            <h2>Support Fast-Moving Teams</h2>
-        </div>
-        <div class="audience-grid">
-            <div class="audience-card">
-                <div class="audience-icon">🎨</div>
-                <h3>Creative Teams</h3>
-                <p>Skip expensive photoshoots and generate unlimited assets instantly for campaigns, pitches, and content production.</p>
-            </div>
-            <div class="audience-card">
-                <div class="audience-icon">📊</div>
-                <h3>Performance Marketers</h3>
-                <p>Launch 50+ creative variants per day and test what resonates. Optimize faster with data-driven visual content.</p>
-            </div>
-            <div class="audience-card">
-                <div class="audience-icon">💼</div>
-                <h3>Business Owners</h3>
-                <p>Create professional marketing materials in minutes without hiring designers or agencies. Scale your brand effortlessly.</p>
-            </div>
-        </div>
-    </section>
+        modeTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                modeTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                const mode = this.dataset.mode;
+                
+                // Update model options
+                modelSelect.innerHTML = '';
+                modelOptions[mode].forEach(option => {
+                    const opt = document.createElement('option');
+                    opt.value = option.value;
+                    opt.textContent = option.label;
+                    modelSelect.appendChild(opt);
+                });
 
-    <!-- Stats -->
-    <section class="stats">
-        <div class="section-header">
-            <h2>Real Impact</h2>
-            <p>Join thousands of creators achieving exceptional results</p>
-        </div>
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number">10x</div>
-                <div class="stat-label">Faster content creation</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">85%</div>
-                <div class="stat-label">Cost reduction</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">3.2x</div>
-                <div class="stat-label">Higher engagement rates</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">500K+</div>
-                <div class="stat-label">Creatives generated monthly</div>
-            </div>
-        </div>
-    </section>
+                // Show/hide duration for video modes
+                if (mode === 'text-to-image') {
+                    durationGroup.style.display = 'none';
+                    uploadGroup.style.display = 'none';
+                } else if (mode === 'text-to-video') {
+                    durationGroup.style.display = 'block';
+                    uploadGroup.style.display = 'none';
+                } else {
+                    durationGroup.style.display = 'block';
+                    uploadGroup.style.display = 'block';
+                }
+            });
+        });
 
-    <!-- Pricing -->
-    <section class="pricing" id="pricing">
-        <div class="section-header">
-            <span class="section-tag">PRICING</span>
-            <h2>Choose Your Plan</h2>
-            <p>Flexible plans for creators of all sizes</p>
+        // Option Button Toggle
+        document.querySelectorAll('.button-group').forEach(group => {
+            const buttons = group.querySelectorAll('.option-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+        });
+
+        // Create Button
+        document.querySelector('.create-button').addEventListener('click', function() {
+            const mode = document.querySelector('.mode-tab.active').dataset.mode;
+            const prompt = document.getElementById('prompt').value;
+            const model = document.getElementById('model').value;
+            
+            if (!prompt.trim()) {
+                alert('Please enter a description of what you want to create!');
+                return;
+            }
+            
+            alert(`🎨 Creating ${mode} content!\n\nPrompt: ${prompt}\nModel: ${model}\n\nThis is a demo. In production, this would send a request to your AI API.`);
+        });
+
+        // File Upload Preview
+        document.getElementById('fileUpload').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const uploadText = document.querySelector('.upload-text');
+                uploadText.textContent = `Selected: ${file.name}`;
+            }
+        });
+    </script>
+</body>
+</html>
