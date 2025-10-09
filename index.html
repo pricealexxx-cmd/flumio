@@ -142,19 +142,32 @@
         }
 
         @media (max-width: 768px) {
-            .hero-video {
-                width: 100%;
-                height: auto;
-                min-height: 100%;
-                object-fit: cover;
-                object-position: center center;
-            }
-            
-            .hero {
-                min-height: 100vh;
-                min-height: 100dvh; /* Dynamic viewport height для мобильных */
-            }
-        }
+    .hero {
+        min-height: 100vh;
+        padding: 100px 5% 60px;
+    }
+    
+    .hero-video {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 100vw;
+        width: 100vw;
+        height: 56.25vw;
+        min-height: 100vh;
+        object-fit: cover !important;
+        object-position: center;
+    }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+    .hero-video {
+        width: 177.78vh;
+        height: 100vh;
+        min-width: 100vw;
+    }
+}
 
         .hero::before {
             content: '';
