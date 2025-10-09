@@ -118,6 +118,7 @@
             box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
         }
 
+        /* Hero Section with Video Background */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -129,38 +130,36 @@
             overflow: hidden;
         }
 
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            z-index: 0;
+            opacity: 0.35;
+        }
+
         .hero::before {
             content: '';
             position: absolute;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.3) 0%, transparent 70%);
-            top: -200px;
-            right: -200px;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(236, 72, 153, 0.2) 0%, transparent 70%);
-            bottom: -100px;
-            left: -100px;
-            animation: float 25s ease-in-out infinite reverse;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(50px, -50px) rotate(120deg); }
-            66% { transform: translate(-30px, 30px) rotate(240deg); }
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.8));
+            z-index: 1;
+            pointer-events: none;
         }
 
         .hero-content {
             max-width: 1000px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero h1 {
@@ -177,9 +176,10 @@
 
         .hero p {
             font-size: 1.4rem;
-            color: var(--text-dim);
+            color: var(--text);
             margin-bottom: 2.5rem;
             animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .hero-buttons {
@@ -217,9 +217,43 @@
             border-color: var(--primary);
         }
 
+        .brands {
+            padding: 3rem 5%;
+            text-align: center;
+            background: rgba(15, 23, 42, 0.5);
+        }
+
+        .brands h3 {
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .brand-grid {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            opacity: 0.6;
+        }
+
+        .brand-item {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text-dim);
+        }
+
+        .features {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
         .section-tag {
@@ -245,6 +279,428 @@
             color: var(--text-dim);
             max-width: 700px;
             margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(30, 41, 59, 0.5);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-card p {
+            color: var(--text-dim);
+            line-height: 1.8;
+            position: relative;
+            z-index: 1;
+        }
+
+        .how-it-works {
+            padding: 100px 5%;
+            background: rgba(30, 41, 59, 0.3);
+        }
+
+        .workflow-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            gap: 3rem;
+        }
+
+        .workflow-step {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .workflow-step:nth-child(even) {
+            direction: rtl;
+        }
+
+        .workflow-step:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .workflow-content {
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .workflow-content h3 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .workflow-content p {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            line-height: 1.8;
+        }
+
+        .workflow-visual {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            height: 350px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .workflow-visual::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.2;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(0.8); opacity: 0.2; }
+            50% { transform: scale(1.2); opacity: 0.4; }
+        }
+
+        .workflow-visual-text {
+            font-size: 3rem;
+            font-weight: 700;
+            opacity: 0.3;
+        }
+
+        .audience {
+            padding: 100px 5%;
+        }
+
+        .audience-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .audience-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .audience-card:hover {
+            transform: scale(1.05);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .audience-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .audience-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .audience-card p {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+
+        .use-cases {
+            padding: 100px 5%;
+            background: rgba(15, 23, 42, 0.5);
+        }
+
+        .use-cases-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+        }
+
+        @media (max-width: 1200px) {
+            .use-cases-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .use-cases-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .use-case-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .use-case-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.05), rgba(236, 72, 153, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .use-case-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .use-case-card:hover::before {
+            opacity: 1;
+        }
+
+        .use-case-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .use-case-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .use-case-card p {
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .use-case-stats {
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .stat-highlight {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .stats {
+            padding: 100px 5%;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+        }
+
+        .pricing {
+            padding: 100px 5%;
+        }
+
+        .pricing-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .pricing-card {
+            background: rgba(30, 41, 59, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 3rem;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary);
+            transform: scale(1.05);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary);
+        }
+
+        .pricing-card.featured:hover {
+            transform: translateY(-10px) scale(1.07);
+        }
+
+        .pricing-name {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+        }
+
+        .pricing-price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing-period {
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .pricing-features li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--text-dim);
+        }
+
+        .pricing-features li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-button {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--primary);
+        }
+
+        .pricing-card.featured .pricing-button {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border: none;
         }
 
         /* Generator Section */
@@ -492,10 +948,59 @@
         }
 
         footer {
-            padding: 40px 5%;
+            padding: 80px 5% 40px;
             background: rgba(15, 23, 42, 0.8);
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .footer-brand p {
+            color: var(--text-dim);
+            line-height: 1.8;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            display: block;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
             text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-dim);
         }
 
@@ -514,6 +1019,20 @@
 
             .section-header h2 {
                 font-size: 2.5rem;
+            }
+
+            .workflow-step {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .workflow-step:nth-child(even) {
+                direction: ltr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
 
             .nav-links {
@@ -545,26 +1064,285 @@
         <div class="nav-container">
             <div class="logo">Flumio.ai</div>
             <ul class="nav-links">
-                <li><a href="#create">Create</a></li>
                 <li><a href="#features">Features</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
                 <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#create">Create</a></li>
             </ul>
-            <a href="#create" class="cta-button">Start Creating</a>
+            <a href="#create" class="cta-button">Get Started Free</a>
         </div>
     </nav>
 
     <section class="hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="https://pub-e2744914cd2c461fbb050e97307fae18.r2.dev/hero-block.mp4" type="video/mp4">
+        </video>
         <div class="hero-content">
             <h1>Transform Ideas Into Stunning Visuals</h1>
             <p>Create professional images and videos with AI. From text to visual masterpieces in seconds.</p>
             <div class="hero-buttons">
                 <a href="#create" class="cta-button">Start Creating Free</a>
-                <a href="#features" class="secondary-button">Explore Features</a>
+                <a href="#how-it-works" class="secondary-button">Watch Demo</a>
             </div>
         </div>
     </section>
 
-    <!-- AI Generator Form -->
+    <section class="brands">
+        <h3>Trusted by Creative Teams Worldwide</h3>
+        <div class="brand-grid">
+            <div class="brand-item">Adobe</div>
+            <div class="brand-item">Spotify</div>
+            <div class="brand-item">Netflix</div>
+            <div class="brand-item">Meta</div>
+            <div class="brand-item">Microsoft</div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="section-header">
+            <span class="section-tag">AI CREATION SUITE</span>
+            <h2>Everything You Need to Create</h2>
+            <p>Powerful AI tools that transform your creative vision into reality across multiple formats</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">✨</div>
+                <h3>Text to Image</h3>
+                <p>Transform written descriptions into stunning, high-resolution images. Perfect for concept art, marketing materials, and creative exploration.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎬</div>
+                <h3>Text to Video</h3>
+                <p>Generate dynamic video content from text prompts. Create engaging video ads, explainers, and social media content in minutes.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🖼️</div>
+                <h3>Image to Image</h3>
+                <p>Transform existing images with AI. Change styles, enhance quality, or create entirely new variations while maintaining core elements.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎥</div>
+                <h3>Image to Video</h3>
+                <p>Bring static images to life with cinematic animations. Create product showcases, dynamic presentations, and animated content effortlessly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-header">
+            <span class="section-tag">SIMPLE WORKFLOW</span>
+            <h2>How It Works</h2>
+        </div>
+        <div class="workflow-grid">
+            <div class="workflow-step">
+                <div class="workflow-content">
+                    <div class="step-number">Step 01</div>
+                    <h3>Describe Your Vision</h3>
+                    <p>Enter your creative brief, upload an image, or paste a URL. Our AI understands natural language and visual context to bring your ideas to life.</p>
+                </div>
+                <div class="workflow-visual">
+                    <div class="workflow-visual-text">💭</div>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="workflow-content">
+                    <div class="step-number">Step 02</div>
+                    <h3>AI Creates Multiple Variants</h3>
+                    <p>Our advanced AI generates multiple high-quality options instantly. Choose from different styles, compositions, and creative interpretations.</p>
+                </div>
+                <div class="workflow-visual">
+                    <div class="workflow-visual-text">🎨</div>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="workflow-content">
+                    <div class="step-number">Step 03</div>
+                    <h3>Customize & Refine</h3>
+                    <p>Fine-tune every aspect with our intuitive editor. Adjust colors, styles, animations, and more to match your brand perfectly.</p>
+                </div>
+                <div class="workflow-visual">
+                    <div class="workflow-visual-text">⚙️</div>
+                </div>
+            </div>
+
+            <div class="workflow-step">
+                <div class="workflow-content">
+                    <div class="step-number">Step 04</div>
+                    <h3>Export & Deploy</h3>
+                    <p>Download in any format or publish directly to your platforms. Optimized for social media, websites, and advertising channels.</p>
+                </div>
+                <div class="workflow-visual">
+                    <div class="workflow-visual-text">🚀</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="audience">
+        <div class="section-header">
+            <span class="section-tag">BUILT FOR EVERYONE</span>
+            <h2>Support Fast-Moving Teams</h2>
+        </div>
+        <div class="audience-grid">
+            <div class="audience-card">
+                <div class="audience-icon">🎨</div>
+                <h3>Creative Teams</h3>
+                <p>Skip expensive photoshoots and generate unlimited assets instantly for campaigns, pitches, and content production.</p>
+            </div>
+            <div class="audience-card">
+                <div class="audience-icon">📊</div>
+                <h3>Performance Marketers</h3>
+                <p>Launch 50+ creative variants per day and test what resonates. Optimize faster with data-driven visual content.</p>
+            </div>
+            <div class="audience-card">
+                <div class="audience-icon">💼</div>
+                <h3>Business Owners</h3>
+                <p>Create professional marketing materials in minutes without hiring designers or agencies. Scale your brand effortlessly.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="use-cases">
+        <div class="section-header">
+            <span class="section-tag">USE CASES</span>
+            <h2>Trusted Across Industries</h2>
+            <p>See how leading companies use Flumio.ai to transform their creative workflow</p>
+        </div>
+        <div class="use-cases-grid">
+            <div class="use-case-card">
+                <div class="use-case-icon">🛍️</div>
+                <h3>E-commerce</h3>
+                <p>Create stunning product photography, lifestyle shots, and promotional videos without expensive photoshoots. Scale your visual content instantly.</p>
+                <div class="use-case-stats">
+                    <span class="stat-highlight">3.5x</span> higher conversion rates
+                </div>
+            </div>
+            
+            <div class="use-case-card">
+                <div class="use-case-icon">📱</div>
+                <h3>Social Media</h3>
+                <p>Generate eye-catching posts, stories, and reels for Instagram, TikTok, and LinkedIn. Stay consistent with daily content that drives engagement.</p>
+                <div class="use-case-stats">
+                    <span class="stat-highlight">10x</span> more content output
+                </div>
+            </div>
+            
+            <div class="use-case-card">
+                <div class="use-case-icon">🎯</div>
+                <h3>Marketing Agencies</h3>
+                <p>Deliver client campaigns faster with AI-powered creative production. Test multiple concepts and iterate in hours, not weeks.</p>
+                <div class="use-case-stats">
+                    <span class="stat-highlight">80%</span> faster delivery
+                </div>
+            </div>
+            
+            <div class="use-case-card">
+                <div class="use-case-icon">🏠</div>
+                <h3>Real Estate</h3>
+                <p>Transform property images into cinematic showcases and virtual tours. Create compelling listings that sell faster.</p>
+                <div class="use-case-stats">
+                    <span class="stat-highlight">2x</span> faster sales
+                </div>
+            </div>
+            
+            <div class="use-case-card">
+                <div class="use-case-icon">👗</div>
+                <h3>Fashion & Beauty</h3>
+                <p>Generate lookbooks, product campaigns, and model shoots with perfect lighting and styling. Launch collections without studio constraints.</p>
+                <div class="use-case-stats">
+                    <span class="stat-highlight">$50K</span> saved per campaign
+                </div>
+            </div>
+            
+            <div class="use-case-card">
+                <div class="use-case-icon">🎮</div>
+                <h3>Content Creators</h3>
+                <p>Create professional thumbnails, video intros, and branded content. Stand out with unique visuals that capture attention.</p>
+                <div class="use-case-stats">
+                    <span class="stat-highlight">5x</span> more views
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="section-header">
+            <h2>Real Impact</h2>
+            <p>Join thousands of creators achieving exceptional results</p>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-number">10x</div>
+                <div class="stat-label">Faster content creation</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">85%</div>
+                <div class="stat-label">Cost reduction</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">3.2x</div>
+                <div class="stat-label">Higher engagement rates</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">500K+</div>
+                <div class="stat-label">Creatives generated monthly</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <span class="section-tag">PRICING</span>
+            <h2>Choose Your Plan</h2>
+            <p>Flexible plans for creators of all sizes</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="pricing-name">Free</div>
+                <div class="pricing-price">$0</div>
+                <div class="pricing-period">per month</div>
+                <ul class="pricing-features">
+                    <li>10 credits/month</li>
+                    <li>Basic AI models</li>
+                    <li>720p exports</li>
+                    <li>Watermarked content</li>
+                </ul>
+                <button class="pricing-button">Get Started</button>
+            </div>
+            
+            <div class="pricing-card featured">
+                <div class="pricing-badge">MOST POPULAR</div>
+                <div class="pricing-name">Pro</div>
+                <div class="pricing-price">$49</div>
+                <div class="pricing-period">per month</div>
+                <ul class="pricing-features">
+                    <li>500 credits/month</li>
+                    <li>All AI models</li>
+                    <li>4K exports</li>
+                    <li>No watermarks</li>
+                    <li>Priority support</li>
+                </ul>
+                <button class="pricing-button">Start Free Trial</button>
+            </div>
+            
+            <div class="pricing-card">
+                <div class="pricing-name">Enterprise</div>
+                <div class="pricing-price">Custom</div>
+                <div class="pricing-period">contact sales</div>
+                <ul class="pricing-features">
+                    <li>Unlimited credits</li>
+                    <li>Custom AI models</li>
+                    <li>API access</li>
+                    <li>Dedicated support</li>
+                    <li>SLA guarantee</li>
+                </ul>
+                <button class="pricing-button">Contact Sales</button>
+            </div>
+        </div>
+    </section>
+
     <section class="generator-section" id="create">
         <div class="section-header">
             <span class="section-tag">START CREATING</span>
@@ -574,7 +1352,6 @@
         
         <div class="generator-container">
             <div class="generator-card">
-                <!-- Mode Tabs -->
                 <div class="mode-tabs">
                     <button class="mode-tab active" data-mode="text-to-image">
                         <span class="tab-icon">✨</span>
@@ -594,9 +1371,7 @@
                     </button>
                 </div>
 
-                <!-- Form Content -->
                 <div class="form-content">
-                    <!-- Prompt Input -->
                     <div class="form-group">
                         <label for="prompt">Describe what you want to create</label>
                         <textarea 
@@ -606,7 +1381,6 @@
                         ></textarea>
                     </div>
 
-                    <!-- Model Selection -->
                     <div class="form-group">
                         <label for="model">AI Model</label>
                         <select id="model" class="form-select">
@@ -615,7 +1389,6 @@
                         </select>
                     </div>
 
-                    <!-- File Upload (for image/video to video modes) -->
                     <div class="form-group upload-group" style="display: none;">
                         <label>Upload Source File</label>
                         <div class="upload-area">
@@ -628,9 +1401,7 @@
                         </div>
                     </div>
 
-                    <!-- Settings Grid -->
                     <div class="settings-grid">
-                        <!-- Aspect Ratio -->
                         <div class="form-group">
                             <label>Aspect Ratio</label>
                             <div class="button-group">
@@ -645,7 +1416,6 @@
                             </div>
                         </div>
 
-                        <!-- Duration (for video modes) -->
                         <div class="form-group duration-group" style="display: none;">
                             <label>Duration</label>
                             <div class="button-group">
@@ -655,7 +1425,6 @@
                             </div>
                         </div>
 
-                        <!-- Quality -->
                         <div class="form-group">
                             <label>Quality</label>
                             <div class="button-group">
@@ -666,7 +1435,6 @@
                         </div>
                     </div>
 
-                    <!-- Create Button -->
                     <button class="create-button">
                         <span class="button-text">Create Content</span>
                         <span class="button-icon">→</span>
@@ -677,11 +1445,44 @@
     </section>
 
     <footer>
-        <p>&copy; 2025 Flumio.ai. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Flumio.ai</h3>
+                <p>Transform your ideas into stunning visual content with the power of AI. Create images and videos in seconds.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Product</h4>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#create">Generator</a></li>
+                    <li><a href="#">API</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy</a></li>
+                    <li><a href="#">Terms</a></li>
+                    <li><a href="#">Security</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Flumio.ai. All rights reserved.</p>
+        </div>
     </footer>
 
     <script>
-        // Navbar scroll effect
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
@@ -691,7 +1492,6 @@
             }
         });
 
-        // Mode Tab Switching
         const modeTabs = document.querySelectorAll('.mode-tab');
         const modelSelect = document.getElementById('model');
         const durationGroup = document.querySelector('.duration-group');
@@ -726,7 +1526,6 @@
                 
                 const mode = this.dataset.mode;
                 
-                // Update model options
                 modelSelect.innerHTML = '';
                 modelOptions[mode].forEach(option => {
                     const opt = document.createElement('option');
@@ -735,7 +1534,6 @@
                     modelSelect.appendChild(opt);
                 });
 
-                // Show/hide duration for video modes
                 if (mode === 'text-to-image') {
                     durationGroup.style.display = 'none';
                     uploadGroup.style.display = 'none';
@@ -749,7 +1547,6 @@
             });
         });
 
-        // Option Button Toggle
         document.querySelectorAll('.button-group').forEach(group => {
             const buttons = group.querySelectorAll('.option-button');
             buttons.forEach(button => {
@@ -760,7 +1557,6 @@
             });
         });
 
-        // Create Button
         document.querySelector('.create-button').addEventListener('click', function() {
             const mode = document.querySelector('.mode-tab.active').dataset.mode;
             const prompt = document.getElementById('prompt').value;
@@ -774,7 +1570,6 @@
             alert(`🎨 Creating ${mode} content!\n\nPrompt: ${prompt}\nModel: ${model}\n\nThis is a demo. In production, this would send a request to your AI API.`);
         });
 
-        // File Upload Preview
         document.getElementById('fileUpload').addEventListener('change', function(e) {
             const file = e.target.files[0];
             if (file) {
