@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pushraise - AI Support Wireframe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(180deg, 
+                #87CEEB 0%,
+                #6B5CE7 50%,
+                #C41E3A 100%
+            );
+            color: #000000;
+            line-height: 1.6;
+            min-height: 300vh;
+        }
+
+        .mono {
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Header */
+        header {
+            border-bottom: 2px solid #000;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        nav a:hover {
+            border-bottom: 2px solid #000;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        /* Interactive Chat Section */
+        .chat-demo {
+            background: #000;
+            color: #fff;
+            padding: 60px 40px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .chat-demo h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .chat-demo p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .chat-button {
+            display: inline-block;
+            background: #fff;
+            color: #000;
+            padding: 20px 40px;
+            font-size: 18px;
+            font-weight: 700;
+            border: 3px solid #fff;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        .chat-button:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Section */
+        section {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+
+        .icon-item h3 {
+            font-size: 20px;
+            margin: 20px 0 10px 0;
+            font-weight: 700;
+            text-align: center;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+
+        /* Icon Grid */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .icon-item {
+            text-align: center;
+            padding: 40px 30px;
+            border: 3px solid #000;
+            background: linear-gradient(135deg, #ffffff 0%, #87CEEB 100%);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .icon-item:hover {
+            border: 3px solid transparent;
+            background: linear-gradient(#fff, #fff) padding-box,
+                        linear-gradient(90deg, 
+                            #ff0000 0%,
+                            #ff7f00 16.66%,
+                            #ffff00 33.33%,
+                            #00ff00 50%,
+                            #0000ff 66.66%,
+                            #8b00ff 83.33%,
+                            #ff0000 100%
+                        ) border-box;
+            background-size: 100% 100%, 300% 100%;
+            animation: rainbowBorder 2s linear infinite;
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        @keyframes rainbowBorder {
+            0% { background-position: 0% 0%, 0% 0%; }
+            100% { background-position: 0% 0%, 300% 0%; }
+        }
+
+        .icon-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #87CEEB 0%, #ffffff 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+        }
+
+        .icon-item:hover::before {
+            opacity: 1;
+        }
+
+        .icon-item:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .icon-item > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .icon-placeholder {
+            width: 80px;
+            height: 80px;
+            background: #000;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 12px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .icon-item:hover .icon-placeholder {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        /* Media Placeholders */
+        .media-placeholder {
+            width: 100%;
+            height: 400px;
+            background: #f0f0f0;
+            border: 2px dashed #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 30px 0;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+        }
+
+        .video-placeholder {
+            height: 500px;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            counter-reset: step-counter;
+            list-style: none;
+            margin: 40px 0;
+        }
+
+        .process-steps li {
+            counter-increment: step-counter;
+            padding: 20px 0 20px 60px;
+            position: relative;
+            border-left: 2px solid rgba(255, 255, 255, 0.3);
+            margin-left: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .process-steps li:before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            color: #6B5CE7;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Tech Logos */
+        .tech-logos {
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .tech-logo {
+            width: 120px;
+            height: 60px;
+            border: 2px solid #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 12px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border: 2px solid #000;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #000;
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+        }
+
+        textarea {
+            min-height: 150px;
+        }
+
+        button[type="submit"] {
+            background: #000;
+            color: #fff;
+            padding: 15px 40px;
+            border: none;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            padding: 40px;
+            text-align: center;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #000;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+
+        /* Chat Animation Styles */
+        @keyframes typingDot {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.7;
+            }
+            30% {
+                transform: translateY(-10px);
+                opacity: 1;
+            }
+        }
+
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
+
+        @keyframes messageSlideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message-demo {
+            display: flex;
+            align-items: flex-end;
+            gap: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: messageSlideIn 0.3s ease forwards;
+        }
+
+        .message-demo.ai-demo {
+            flex-direction: row;
+        }
+
+        .message-demo.user-demo {
+            flex-direction: row-reverse;
+        }
+
+        .message-bubble-demo {
+            max-width: 70%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .message-demo.ai-demo .message-bubble-demo {
+            background: #000;
+            color: #fff;
+            border-bottom-left-radius: 4px;
+        }
+
+        .message-demo.user-demo .message-bubble-demo {
+            background: #e0e0e0;
+            color: #000;
+            border-bottom-right-radius: 4px;
+        }
+
+        /* CTA Boxes */
+        .cta-box {
+            background: #000;
+            color: #fff;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .cta-box p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">PUSHRAISE</div>
+        <nav>
+            <a href="#home">HOME</a>
+            <a href="#solutions">SOLUTIONS</a>
+            <a href="#approach">APPROACH</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+    </header>
+
+    <!-- Video Hero Section -->
+    <section class="video-hero">
+        <video class="video-hero-bg" autoplay muted loop playsinline>
+            <source src="https://50c72bbcc54b7e5df698cb9286f0d4cd.r2.cloudflarestorage.com/pushraise/1014.mp4" type="video/mp4">
+        </video>
+        <div class="video-hero-overlay"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <h1 style="font-size: 56px; font-weight: 900; margin-bottom: 30px; color: #fff; text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); text-align: center;">AI-агенты для автоматизации поддержки 24/7</h1>
+        </div>
+    </section>
+
+    <style>
+        .video-hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+        }
+
+        .video-hero-bg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            object-fit: cover;
+        }
+
+        .video-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            .video-hero {
+                min-height: 50vh;
+            }
+            .video-hero h1 {
+                font-size: 36px !important;
+            }
+        }
+    </style>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>AI-агенты для автоматизации поддержки пользователей 24/7</h1>
+            <p>Интеграция AI для оптимизации чатов, звонков и снижения расходов. Автоматизируем до 90% типовых запросов с помощью Google Cloud и Dialogflow.</p>
+            
+            <div class="icon-grid">
+                <div class="icon-item">
+                    <div class="icon-placeholder">24/7</div>
+                    <h3>24/7 Поддержка</h3>
+                    <p>Мгновенные ответы в любое время суток</p>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-placeholder">COST</div>
+                    <h3>Снижение расходов</h3>
+                    <p>До 70% экономии на операционных затратах</p>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-placeholder">SCALE</div>
+                    <h3>Масштаб</h3>
+                    <p>Новые языки и каналы за минуты</p>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-placeholder">OMNI</div>
+                    <h3>Омниканальность</h3>
+                    <p>Единая система для всех каналов связи</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Chat Demo -->
+    <div class="chat-demo">
+        <div class="container">
+            <h2>ПРОТЕСТИРУЙТЕ НАШЕ РЕШЕНИЕ</h2>
+            <p>Начните диалог с нашим AI-агентом прямо сейчас.<br>
+            Узнайте, как AI может ответить на ваши вопросы и квалифицировать ваш проект.</p>
+            <div class="chat-button">► НАЧАТЬ ЧАТ</div>
+        </div>
+    </div>
+
+    <!-- Solutions -->
+    <section id="solutions">
+        <div class="container">
+            <h2 style="font-size: 48px; margin-bottom: 50px; font-weight: 900; text-align: center; color: #000;">РЕШЕНИЯ</h2>
+            
+            <div style="background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(135,206,235,0.3) 100%); padding: 50px; margin: 40px 0; border: 2px solid #000; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                <h3 style="font-size: 32px; margin: 0 0 20px 0; font-weight: 900; color: #000;">💬 Автоматизация поддержки 24/7</h3>
+                <p style="font-size: 18px; margin-bottom: 30px; line-height: 1.6; color: #000;">Мгновенный ответ на запросы клиентов. Обработка до 90% типовых вопросов без участия человека.</p>
+            
+            <div style="display: flex; justify-content: center; margin: 40px 0;">
+                <div style="width: 100%; max-width: 375px; aspect-ratio: 9/16; background: #ffffff; border: 3px solid #000; border-radius: 30px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
+                    <div style="background: #000; color: #fff; padding: 20px; text-align: center; font-weight: 700; font-size: 16px; border-bottom: 2px solid #000;">
+                        AI ПОДДЕРЖКА 24/7
+                    </div>
+                    
+                    <div class="chat-area-demo" style="flex: 1; padding: 20px; overflow-y: auto; background: #fafafa; display: flex; flex-direction: column; gap: 15px;">
+                        <div class="message-demo ai-demo typing-indicator-container-demo">
+                            <div style="width: 32px; height: 32px; background: #000; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0;">AI</div>
+                            <div class="typing-indicator-demo active-demo" style="padding: 12px 16px; background: #000; color: #fff; border-radius: 18px; border-bottom-left-radius: 4px; width: fit-content;">
+                                <span style="display: inline-block; width: 8px; height: 8px; background: #fff; border-radius: 50%; margin: 0 2px; animation: typingDot 1.4s infinite;"></span>
+                                <span style="display: inline-block; width: 8px; height: 8px; background: #fff; border-radius: 50%; margin: 0 2px; animation: typingDot 1.4s infinite; animation-delay: 0.2s;"></span>
+                                <span style="display: inline-block; width: 8px; height: 8px; background: #fff; border-radius: 50%; margin: 0 2px; animation: typingDot 1.4s infinite; animation-delay: 0.4s;"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="padding: 15px 20px; background: #fff; border-top: 2px solid #e0e0e0; display: flex; gap: 10px; align-items: center;">
+                        <div style="flex: 1; padding: 12px 16px; border: 2px solid #000; border-radius: 24px; font-size: 14px; position: relative; background: #fff; overflow: hidden; min-width: 0;">
+                            <span class="typing-text-demo" style="color: #000; white-space: nowrap; overflow: hidden; display: inline-block; max-width: 100%;"></span>
+                            <span class="cursor-demo" style="display: none; width: 2px; height: 16px; background: #000; animation: blink 1s infinite; margin-left: 2px; vertical-align: text-bottom;"></span>
+                        </div>
+                        <button style="width: 40px; height: 40px; background: #000; color: #fff; border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0;">→</button>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                (function() {
+                    const messagesDemo = [
+                        {
+                            role: "ai",
+                            text: "Здравствуйте! Чем могу помочь?",
+                            delay: 1000
+                        },
+                        {
+                            role: "user",
+                            text: "Я бы хотел узнать когда будет доставлен мой заказ.",
+                            delay: 2000,
+                            typing: true
+                        },
+                        {
+                            role: "ai",
+                            text: "Конечно! Для проверки статуса заказа мне понадобится номер заказа.",
+                            delay: 1500
+                        },
+                        {
+                            role: "user",
+                            text: "Заказ #12345",
+                            delay: 1000,
+                            typing: true
+                        },
+                        {
+                            role: "ai",
+                            text: "Проверяю информацию по заказу #12345...",
+                            delay: 2000
+                        },
+                        {
+                            role: "ai",
+                            text: "Ваш заказ находится в пути! Ожидаемая дата доставки: завтра, 13 октября.",
+                            delay: 2500
+                        },
+                        {
+                            role: "user",
+                            text: "Отлично, спасибо!",
+                            delay: 1000,
+                            typing: true
+                        },
+                        {
+                            role: "ai",
+                            text: "Всегда рад помочь! Если возникнут вопросы — я на связи 24/7",
+                            delay: 1500
+                        }
+                    ];
+
+                    function createMessageDemo(role, text) {
+                        const messageDiv = document.createElement('div');
+                        messageDiv.className = `message-demo ${role}-demo`;
+                        
+                        const avatar = document.createElement('div');
+                        avatar.style.cssText = 'width: 32px; height: 32px; background: ' + (role === 'ai' ? '#000' : '#666') + '; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0;';
+                        avatar.textContent = role === 'ai' ? 'AI' : 'У';
+                        
+                        const bubble = document.createElement('div');
+                        bubble.className = 'message-bubble-demo';
+                        bubble.textContent = text;
+                        
+                        messageDiv.appendChild(avatar);
+                        messageDiv.appendChild(bubble);
+                        
+                        return messageDiv;
+                    }
+
+                    function showTypingIndicatorDemo() {
+                        const indicator = document.querySelector('.typing-indicator-container-demo');
+                        if (indicator) {
+                            indicator.style.display = 'flex';
+                        }
+                    }
+
+                    function hideTypingIndicatorDemo() {
+                        const indicator = document.querySelector('.typing-indicator-container-demo');
+                        if (indicator) {
+                            indicator.style.display = 'none';
+                        }
+                    }
+
+                    async function typeTextDemo(text, element, speed = 80) {
+                        element.textContent = '';
+                        const cursor = document.querySelector('.cursor-demo');
+                        if (cursor) cursor.style.display = 'inline-block';
+                        
+                        for (let i = 0; i < text.length; i++) {
+                            element.textContent += text[i];
+                            await new Promise(resolve => setTimeout(resolve, speed));
+                        }
+                        
+                        await new Promise(resolve => setTimeout(resolve, 500));
+                        if (cursor) cursor.style.display = 'none';
+                    }
+
+                    async function animateChatDemo() {
+                        const chatArea = document.querySelector('.chat-area-demo');
+                        const typingText = document.querySelector('.typing-text-demo');
+                        
+                        if (!chatArea || !typingText) return;
+
+                        chatArea.innerHTML = '';
+                        const typingIndicatorContainer = document.createElement('div');
+                        typingIndicatorContainer.className = 'message-demo ai-demo typing-indicator-container-demo';
+                        typingIndicatorContainer.innerHTML = `
+                            <div style="width: 32px; height: 32px; background: #000; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0;">AI</div>
+                            <div class="typing-indicator-demo active-demo" style="padding: 12px 16px; background: #000; color: #fff; border-radius: 18px; border-bottom-left-radius: 4px; width: fit-content;">
+                                <span style="display: inline-block; width: 8px; height: 8px; background: #fff; border-radius: 50%; margin: 0 2px; animation: typingDot 1.4s infinite;"></span>
+                                <span style="display: inline-block; width: 8px; height: 8px; background: #fff; border-radius: 50%; margin: 0 2px; animation: typingDot 1.4s infinite; animation-delay: 0.2s;"></span>
+                                <span style="display: inline-block; width: 8px; height: 8px; background: #fff; border-radius: 50%; margin: 0 2px; animation: typingDot 1.4s infinite; animation-delay: 0.4s;"></span>
+                            </div>
+                        `;
+                        chatArea.appendChild(typingIndicatorContainer);
+                        
+                        typingText.textContent = '';
+                        
+                        for (let i = 0; i < messagesDemo.length; i++) {
+                            const msg = messagesDemo[i];
+                            
+                            await new Promise(resolve => setTimeout(resolve, msg.delay));
+                            
+                            if (msg.role === 'ai') {
+                                showTypingIndicatorDemo();
+                                await new Promise(resolve => setTimeout(resolve, 1000));
+                                hideTypingIndicatorDemo();
+                                
+                                const messageElement = createMessageDemo(msg.role, msg.text);
+                                chatArea.appendChild(messageElement);
+                            } else if (msg.typing) {
+                                await typeTextDemo(msg.text, typingText);
+                                typingText.textContent = '';
+                                
+                                const messageElement = createMessageDemo(msg.role, msg.text);
+                                chatArea.appendChild(messageElement);
+                            }
+                            
+                            chatArea.scrollTop = chatArea.scrollHeight;
+                        }
+                    }
+
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', () => {
+                            setTimeout(animateChatDemo, 1000);
+                        });
+                    } else {
+                        setTimeout(animateChatDemo, 1000);
+                    }
+                })();
+            </script>
+
+            <h3>2.2. Голосовая AI-поддержка (входящие и исходящие звонки)</h3>
+            <p>Автоматизация телефонной поддержки с использованием новейших голосовых моделей Google. Естественные диалоги, распознавание речи на 50+ языках, интеграция с телефонией.</p>
+            
+            <div class="icon-grid" style="margin: 30px 0;">
+                <div class="icon-item">
+                    <div class="icon-placeholder">IN</div>
+                    <h4 style="font-size: 18px; margin: 15px 0 10px 0;">Входящие звонки</h4>
+                    <p style="font-size: 14px;">AI-оператор принимает звонки 24/7, отвечает на вопросы, направляет к специалистам</p>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-placeholder">OUT</div>
+                    <h4 style="font-size: 18px; margin: 15px 0 10px 0;">Исходящие звонки</h4>
+                    <p style="font-size: 14px;">Автоматические напоминания, опросы, подтверждение бронирований и заказов</p>
+                </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #6B5CE7 0%, #87CEEB 100%); padding: 50px; margin: 40px 0; border: 3px solid #000; border-radius: 25px; transition: all 0.4s ease; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(107, 92, 231, 0.3);" class="tech-box">
+                <h4 style="font-size: 26px; margin-bottom: 25px; font-weight: 900; position: relative; z-index: 1; color: #fff; text-transform: uppercase; letter-spacing: 1px;">⚡ Технологии Google Cloud</h4>
+                <ul style="list-style: none; padding: 0; margin: 0; position: relative; z-index: 1;">
+                    <li style="padding: 15px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.3); color: #fff; font-size: 16px; transition: all 0.3s ease;" class="tech-item">✓ <strong>Cloud Speech-to-Text API</strong> — точное распознавание речи в реальном времени</li>
+                    <li style="padding: 15px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.3); color: #fff; font-size: 16px; transition: all 0.3s ease;" class="tech-item">✓ <strong>Cloud Text-to-Speech (WaveNet/Neural2)</strong> — максимально естественный голос</li>
+                    <li style="padding: 15px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.3); color: #fff; font-size: 16px; transition: all 0.3s ease;" class="tech-item">✓ <strong>Dialogflow CX с телефонией</strong> — сложная логика диалогов</li>
+                    <li style="padding: 15px 20px; color: #fff; font-size: 16px; transition: all 0.3s ease;" class="tech-item">✓ <strong>Contact Center AI Platform</strong> — полноценный контакт-центр</li>
+                </ul>
+            </div>
+
+            <style>
+                .tech-box::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(135deg, #87CEEB 0%, #6B5CE7 100%);
+                    opacity: 0;
+                    transition: opacity 0.4s ease;
+                    z-index: 0;
+                }
+
+                .tech-box:hover::before {
+                    opacity: 1;
+                }
+
+                .tech-box:hover {
+                    transform: translateY(-15px) scale(1.03);
+                    box-shadow: 0 20px 50px rgba(107, 92, 231, 0.5);
+                }
+
+                .tech-box::after {
+                    content: '';
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 200%;
+                    height: 200%;
+                    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+                    animation: techPulse 4s ease-in-out infinite;
+                    pointer-events: none;
+                }
+
+                @keyframes techPulse {
+                    0%, 100% { transform: scale(1); opacity: 0.5; }
+                    50% { transform: scale(1.2); opacity: 0.8; }
+                }
+
+                .tech-item:hover {
+                    padding-left: 30px;
+                    background: rgba(255, 255, 255, 0.1);
+                    border-radius: 10px;
+                }
+            </style>
+
+            <div class="cta-box" style="margin-top: 40px;">
+                <h3 style="font-size: 24px; margin-bottom: 15px; color: #fff;">Протестируйте голосовую AI-поддержку</h3>
+                <p>Пообщайтесь с нашим AI-агентом и узнайте о возможностях голосовых решений</p>
+                <div class="chat-button" style="margin-top: 20px;">НАЧАТЬ ЧАТ С AI</div>
+            </div>
+
+            
+            <div style="width: 100%; min-height: 600px; margin: 50px 0; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(135,206,235,0.1) 100%); border-radius: 30px; border: 2px solid rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;">
+                
+                <!-- Центральный блок -->
+                <div style="padding: 60px 80px; z-index: 100; position: relative;">
+                    <div style="text-align: center; color: #000; font-weight: 900; font-size: 36px; line-height: 1.4;">
+                        ВАШЕ AI<br>РЕШЕНИЕ
+                    </div>
+                </div>
+
+                <!-- Плавающие иконки-облака -->
+                <div class="floating-icon" style="position: absolute; width: 90px; height: 90px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 45px; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); animation: float1 20s ease-in-out infinite;">
+                    📱
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 85px; height: 85px; background: linear-gradient(135deg, #0084FF 0%, #00C6FF 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 42px; box-shadow: 0 10px 30px rgba(0, 132, 255, 0.3); animation: float2 25s ease-in-out infinite;">
+                    💬
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 95px; height: 95px; background: linear-gradient(135deg, #E4405F 0%, #F77737 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 48px; box-shadow: 0 10px 30px rgba(228, 64, 95, 0.3); animation: float3 22s ease-in-out infinite;">
+                    📷
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 80px; height: 80px; background: linear-gradient(135deg, #0088CC 0%, #229ED9 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; box-shadow: 0 10px 30px rgba(0, 136, 204, 0.3); animation: float4 28s ease-in-out infinite;">
+                    ✈️
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 88px; height: 88px; background: linear-gradient(135deg, #3C4043 0%, #5F6368 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 44px; box-shadow: 0 10px 30px rgba(60, 64, 67, 0.3); animation: float5 24s ease-in-out infinite;">
+                    ☎️
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 82px; height: 82px; background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 41px; box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3); animation: float6 26s ease-in-out infinite;">
+                    📞
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 85px; height: 85px; background: linear-gradient(135deg, #3C4043 0%, #5F6368 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 900; color: #fff; box-shadow: 0 10px 30px rgba(60, 64, 67, 0.3); animation: float7 23s ease-in-out infinite;">
+                    APP
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 90px; height: 90px; background: linear-gradient(135deg, #3C4043 0%, #5F6368 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 45px; box-shadow: 0 10px 30px rgba(60, 64, 67, 0.3); animation: float8 27s ease-in-out infinite;">
+                    🌐
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 87px; height: 87px; background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 43px; box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3); animation: float9 21s ease-in-out infinite;">
+                    💻
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 83px; height: 83px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 41px; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3); animation: float10 29s ease-in-out infinite;">
+                    📧
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <p>Хотите увидеть, как это работает для вашей отрасли?</p>
+                <div class="chat-button">СПРОСИТЬ AI ОБ ОТРАСЛЕВЫХ РЕШЕНИЯХ</div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .solution-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(135,206,235,0.4) 0%, rgba(255,255,255,0.9) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .solution-card:hover::before {
+            opacity: 1;
+        }
+
+        .solution-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .solution-card > * {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+            
+            <div style="width: 100%; min-height: 600px; margin: 50px 0; position: relative; overflow: hidden; background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(135,206,235,0.1) 100%); border-radius: 30px; border: 2px solid rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;">
+                
+                <!-- Центральный блок -->
+                <div style="padding: 60px 80px; z-index: 100; position: relative;">
+                    <div style="text-align: center; color: #000; font-weight: 900; font-size: 36px; line-height: 1.4;">
+                        ВАШЕ AI<br>РЕШЕНИЕ
+                    </div>
+                </div>
+
+                <!-- Плавающие иконки-облака -->
+                <div class="floating-icon" style="position: absolute; width: 90px; height: 90px; background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 45px; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3); animation: float1 20s ease-in-out infinite;">
+                    📱
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 85px; height: 85px; background: linear-gradient(135deg, #0084FF 0%, #00C6FF 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 42px; box-shadow: 0 10px 30px rgba(0, 132, 255, 0.3); animation: float2 25s ease-in-out infinite;">
+                    💬
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 95px; height: 95px; background: linear-gradient(135deg, #E4405F 0%, #F77737 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 48px; box-shadow: 0 10px 30px rgba(228, 64, 95, 0.3); animation: float3 22s ease-in-out infinite;">
+                    📷
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 80px; height: 80px; background: linear-gradient(135deg, #0088CC 0%, #229ED9 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; box-shadow: 0 10px 30px rgba(0, 136, 204, 0.3); animation: float4 28s ease-in-out infinite;">
+                    ✈️
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 88px; height: 88px; background: linear-gradient(135deg, #3C4043 0%, #5F6368 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 44px; box-shadow: 0 10px 30px rgba(60, 64, 67, 0.3); animation: float5 24s ease-in-out infinite;">
+                    ☎️
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 82px; height: 82px; background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 41px; box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3); animation: float6 26s ease-in-out infinite;">
+                    📞
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 85px; height: 85px; background: linear-gradient(135deg, #3C4043 0%, #5F6368 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 900; color: #fff; box-shadow: 0 10px 30px rgba(60, 64, 67, 0.3); animation: float7 23s ease-in-out infinite;">
+                    APP
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 90px; height: 90px; background: linear-gradient(135deg, #3C4043 0%, #5F6368 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 45px; box-shadow: 0 10px 30px rgba(60, 64, 67, 0.3); animation: float8 27s ease-in-out infinite;">
+                    🌐
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 87px; height: 87px; background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 100%); border-radius: 25px; display: flex; align-items: center; justify-content: center; font-size: 43px; box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3); animation: float9 21s ease-in-out infinite;">
+                    💻
+                </div>
+                
+                <div class="floating-icon" style="position: absolute; width: 83px; height: 83px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 41px; box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3); animation: float10 29s ease-in-out infinite;">
+                    📧
+                </div>
+            </div>
+
+            <style>
+                @keyframes float1 {
+                    0%, 100% { 
+                        transform: translate(0, 0) rotate(0deg);
+                        left: 10%;
+                        top: 15%;
+                    }
+                    25% { 
+                        transform: translate(30px, -20px) rotate(5deg);
+                        left: 15%;
+                        top: 10%;
+                    }
+                    50% { 
+                        transform: translate(60px, 10px) rotate(-3deg);
+                        left: 20%;
+                        top: 20%;
+                    }
+                    75% { 
+                        transform: translate(30px, 30px) rotate(4deg);
+                        left: 12%;
+                        top: 18%;
+                    }
+                }
+
+                @keyframes float2 {
+                    0%, 100% { 
+                        transform: translate(0, 0) rotate(0deg);
+                        right: 10%;
+                        top: 10%;
+                    }
+                    33% { 
+                        transform: translate(-40px, 25px) rotate(-4deg);
+                        right: 8%;
+                        top: 15%;
+                    }
+                    66% { 
+                        transform: translate(-20px, -15px) rotate(6deg);
+                        right: 12%;
+                        top: 8%;
+                    }
+                }
+
+                @keyframes float3 {
+                    0%, 100% { 
+                        transform: translate(0, 0) rotate(0deg);
+                        left: 5%;
+                        bottom: 15%;
+                    }
+                    30% { 
+                        transform: translate(50px, -30px) rotate(7deg);
+                        left: 8%;
+                        bottom: 20%;
+                    }
+                    70% { 
+                        transform: translate(20px, 20px) rotate(-5deg);
+                        left: 6%;
+                        bottom: 12%;
+                    }
+                }
+
+                @keyframes float4 {
+                    0%, 100% { 
+                        transform: translate(0, 0) rotate(0deg);
+                        right: 8%;
+                        bottom: 12%;
+                    }
+                    40% { 
+                        transform: translate(-35px, -25px) rotate(-6deg);
+                        right: 12%;
+                        bottom: 18%;
+                    }
+                    80% { 
+                        transform: translate(-15px, 15px) rotate(4deg);
+                        right: 10%;
+                        bottom: 10%;
+                    }
+                }
+
+                @keyframes float5 {
+                    0%, 100% { 
+                        transform: translate(0, 0) rotate(0deg);
+                        left: 15%;
+                        top: 40%;
+                    }
+                    50% { 
+                        transform: translate(40px, -30px) rotate(5deg);
+                        left: 18%;
+                        top: 35%;
+                    }
+                }
+
+                @keyframes float6 {
+                    0%, 100% { 
+                        transform: translate(0, 0) rotate(0deg);
+                        right: 15%;
+                        top: 45%;
+                    }
+                    50% { 
+                        transform: translate(-45px, 25px) rotate(-5deg);
+                        right: 18%;
+                        top: 50%;
+                    }
+                }
+
+                @keyframes float7 {
+                    0%, 100% { 
+                        transform: translate(0, 0) rotate(0deg);
+                        left: 30%;
+                        top: 8%;
+                    }
+                    50% { 
+                        transform: translate(25px, 30px) rotate(4deg);
+                        left: 32%;
+                        top: 12%;
+                    }
+                }
+
+                @keyframes float8 {
+                    0%, 100% { 
+                        transform: translate(0, 0) rotate(0deg);
+                        right: 25%;
+                        bottom: 8%;
+                    }
+                    50% { 
+                        transform: translate(-30px, -25px) rotate(-4deg);
+                        right: 28%;
+                        bottom: 12%;
+                    }
+                }
+
+                @keyframes float9 {
+                    0%, 100% { 
+                        transform: translate(0, 0) rotate(0deg);
+                        left: 25%;
+                        bottom: 25%;
+                    }
+                    50% { 
+                        transform: translate(35px, -20px) rotate(6deg);
+                        left: 28%;
+                        bottom: 28%;
+                    }
+                }
+
+                @keyframes float10 {
+                    0%, 100% { 
+                        transform: translate(0, 0) rotate(0deg);
+                        right: 22%;
+                        top: 25%;
+                    }
+                    50% { 
+                        transform: translate(-25px, 35px) rotate(-5deg);
+                        right: 25%;
+                        top: 30%;
+                    }
+                }
+
+                .floating-icon {
+                    transition: all 0.3s ease;
+                    backdrop-filter: blur(10px);
+                }
+
+                .floating-icon:hover {
+                    filter: brightness(1.3) drop-shadow(0 0 20px currentColor);
+                    z-index: 50;
+                }
+
+                @media (max-width: 768px) {
+                    .floating-icon {
+                        width: 60px !important;
+                        height: 60px !important;
+                        font-size: 30px !important;
+                    }
+                }
+            </style>
+
+            <div class="cta-box">
+                <p>Хотите увидеть, как это работает для вашей отрасли?</p>
+                <div class="chat-button">СПРОСИТЬ AI ОБ ОТРАСЛЕВЫХ РЕШЕНИЯХ</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Approach -->
+    <section id="approach">
+        <div class="container">
+            <div style="background: linear-gradient(135deg, #6B5CE7 0%, #87CEEB 100%); padding: 50px; margin: 40px 0 60px 0; border: 3px solid #000; border-radius: 25px; transition: all 0.4s ease; position: relative; overflow: hidden; box-shadow: 0 10px 30px rgba(107, 92, 231, 0.3);" class="approach-box">
+                <h2 style="font-size: 42px; margin-bottom: 40px; font-weight: 900; position: relative; z-index: 1; color: #fff; text-transform: uppercase; letter-spacing: 1px;">⚙️ НАШ ПОДХОД И ТЕХНОЛОГИИ</h2>
+            
+                <h3 style="font-size: 28px; margin: 30px 0 20px 0; font-weight: 700; position: relative; z-index: 1; color: #fff;">Этапы создания AI-агента</h3>
+                <ul class="process-steps" style="position: relative; z-index: 1;">
+                    <li style="color: #fff; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);"><strong>Анализ данных и аудит</strong><br>Изучаем текущую систему поддержки и выявляем точки роста</li>
+                    <li style="color: #fff; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);"><strong>Проектирование диалоговых потоков</strong><br>Intent & Entity Design для естественного общения</li>
+                    <li style="color: #fff; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);"><strong>Разработка на Dialogflow</strong><br>Настройка NLU и бизнес-логики</li>
+                    <li style="color: #fff; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);"><strong>Интеграция с системами</strong><br>Подключение к CRM, базам данных, ticketing-системам, booking-системам</li>
+                    <li style="color: #fff; background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);"><strong>Аналитика и оптимизация</strong><br>Постоянное улучшение на основе метрик</li>
+                </ul>
+
+                <h3 style="font-size: 28px; margin: 50px 0 30px 0; font-weight: 700; position: relative; z-index: 1; color: #fff;">Ключевые технологии</h3>
+            </div>
+
+            <style>
+                .approach-box::before {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: linear-gradient(135deg, #87CEEB 0%, #6B5CE7 100%);
+                    opacity: 0;
+                    transition: opacity 0.4s ease;
+                    z-index: 0;
+                }
+
+                .approach-box:hover::before {
+                    opacity: 1;
+                }
+
+                .approach-box:hover {
+                    transform: translateY(-15px) scale(1.03);
+                    box-shadow: 0 20px 50px rgba(107, 92, 231, 0.5);
+                }
+
+                .approach-box::after {
+                    content: '';
+                    position: absolute;
+                    top: -50%;
+                    left: -50%;
+                    width: 200%;
+                    height: 200%;
+                    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 60%);
+                    animation: approachPulse 4s ease-in-out infinite;
+                    pointer-events: none;
+                }
+
+                @keyframes approachPulse {
+                    0%, 100% { transform: scale(1); opacity: 0.5; }
+                    50% { transform: scale(1.2); opacity: 0.8; }
+                }
+
+                .approach-box .process-steps li:hover {
+                    background: rgba(255, 255, 255, 0.2);
+                    transform: translateX(10px);
+                }
+            </style>
+            <div class="icon-grid">
+                <div class="icon-item">
+                    <div class="icon-placeholder">CLOUD</div>
+                    <h3>Google Cloud</h3>
+                    <p>Надежная инфраструктура для AI</p>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-placeholder">DF</div>
+                    <h3>Dialogflow ES/CX</h3>
+                    <p>Наша основная экспертиза</p>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-placeholder">LANG</div>
+                    <h3>Мультиязычность</h3>
+                    <p>Поддержка 50+ языков</p>
+                </div>
+                <div class="icon-item">
+                    <div class="icon-placeholder">TEL</div>
+                    <h3>Телефония</h3>
+                    <p>Интеграция с телефонными системами</p>
+                </div>
+            </div>
+
+            <div class="cta-box">
+                <p>Готовы начать проектирование?</p>
+                <div class="chat-button">ОБСУДИТЬ ТЕХНИЧЕСКИЕ ДЕТАЛИ С AI</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2>КОНТАКТЫ</h2>
+            <p style="text-align: center; font-size: 18px; margin-bottom: 40px;">
+                <strong>Для немедленного ответа используйте окно чата.</strong><br>
+                Для сложных или нестандартных запросов заполните форму ниже.
+            </p>
+
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <label for="name">ИМЯ *</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">EMAIL *</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">КОМПАНИЯ</label>
+                        <input type="text" id="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">СООБЩЕНИЕ *</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit">ОТПРАВИТЬ ЗАПРОС</button>
+                </form>
+            </div>
+
+            <div style="text-align: center; margin-top: 60px;">
+                <p class="mono">EMAIL: hello@pushraise.com</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 PUSHRAISE. AI SUPPORT AUTOMATION.</p>
+        <p style="margin-top: 10px;">POWERED BY GOOGLE CLOUD & DIALOGFLOW</p>
+    </footer>
+
+    <!-- Floating Chat Widget -->
+    <div class="chat-widget">💬</div>
+
+</body>
+</html>
+                
