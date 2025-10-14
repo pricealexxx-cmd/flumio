@@ -469,8 +469,9 @@
 
     <!-- Video Hero Section -->
     <section class="video-hero">
-        <video class="video-hero-bg" autoplay muted loop playsinline>
+        <video class="video-hero-bg" autoplay muted loop playsinline preload="auto">
             <source src="https://50c72bbcc54b7e5df698cb9286f0d4cd.r2.cloudflarestorage.com/pushraise/1014.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
         </video>
         <div class="video-hero-overlay"></div>
         <div class="container" style="position: relative; z-index: 2;">
@@ -487,17 +488,15 @@
             justify-content: center;
             overflow: hidden;
             border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+            background: #000;
         }
 
         .video-hero-bg {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 0;
             object-fit: cover;
         }
